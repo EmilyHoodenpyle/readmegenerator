@@ -17,7 +17,7 @@ const questions = [
     {
         type: 'input',
         message: 'What are the installation instructions for your project?',
-        name: 'insallationInstructions',
+        name: 'installationInstructions',
     },
     {
         type: 'input',
@@ -53,10 +53,47 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    `<${data.projectTitle}>
+
+    ## Description
+    ${data.description}
+    
+    ## Table of Contents
+    - [Installation] (#installation)
+    - [Usage] (#usage)
+    - [Contributing] (#contributing)
+    - [Tests] (#tests)
+    - [Liscense] (#liscense)
+    - [Contact Me] (#contact)
+    
+    ## Installation
+    ${data.installationInstructions}
+    
+    ## Usage
+    ${data.usage}
+    
+    ## Contributing
+    ${data.contributing}
+    
+    ## Tests
+    ${data.tests}
+    
+    ## Liscense
+    
+    ## Contact
+    GitHub (https://github.com/${data.github})
+    Email (mailto:${data.email})`
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    const readMePageContent = fileName();
+
+    fs.writeFile("README.md", readMePageContent, (err) =>
+      err ? console.log(err) : console.log("Successfully created README.md!")
+    );
+}
 
 // Function call to initialize app
 init();
