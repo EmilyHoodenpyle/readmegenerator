@@ -1,3 +1,10 @@
+// Ask questions by Inquirer in init()
+// Pass answers to generateMarkdown.js
+// Build Template Literal in generateMarkdown.js
+// Return the Template Literal to init
+// Pass the Template Literal to writeTofile function
+// Create ‘README.md’ file in writeTofile
+
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
@@ -53,47 +60,18 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    `<${data.projectTitle}>
-
-    ## Description
-    ${data.description}
-    
-    ## Table of Contents
-    - [Installation] (#installation)
-    - [Usage] (#usage)
-    - [Contributing] (#contributing)
-    - [Tests] (#tests)
-    - [Liscense] (#liscense)
-    - [Contact Me] (#contact)
-    
-    ## Installation
-    ${data.installationInstructions}
-    
-    ## Usage
-    ${data.usage}
-    
-    ## Contributing
-    ${data.contributing}
-    
-    ## Tests
-    ${data.tests}
-    
-    ## Liscense
-    
-    ## Contact
-    GitHub (https://github.com/${data.github})
-    Email (mailto:${data.email})`
-}
-
-// TODO: Create a function to initialize app
-function init() {
-    const readMePageContent = fileName();
-
-    fs.writeFile("README.md", readMePageContent, (err) =>
-      err ? console.log(err) : console.log("Successfully created README.md!")
-    );
-}
+function writeToFile(fileName, data) {}
 
 // Function call to initialize app
-init();
+init(
+    inquirer
+        .prompt (
+            questions.prototype
+            )
+        .then ((answers) => {
+            const readMePageContent = generateMarkdown(data);
+
+            fs.writeFile('readMe.md', readMePageContent, (err) => err ? console.log(err) : console.log('Successfully created readMe.md!'))
+        })
+
+);
