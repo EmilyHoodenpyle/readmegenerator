@@ -45,7 +45,7 @@ const questions = [
     {
         type: 'list',
         message: 'What liscense does your project use?',
-        name: 'liscense',
+        name: 'license',
         choices: ['none','MIT','GNU']
     },
     {
